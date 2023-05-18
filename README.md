@@ -2,7 +2,8 @@
 
 ![App Logo](https://github.com/musfique113/EncryptX/assets/53111065/c2743bf8-6f7f-4592-9e3b-5220a2128785)
 
-[![wakatime](https://wakatime.com/badge/user/18368562-fe00-4dd1-a78f-9403210fea47/project/7a9468c1-d2eb-4573-b6b4-692992f6b5ea.svg)](https://wakatime.com/projects/cyberv2)
+[![wakatime stats](https://wakatime.com/badge/user/18368562-fe00-4dd1-a78f-9403210fea47/project/7a9468c1-d2eb-4573-b6b4-692992f6b5ea.svg)](https://wakatime.com/projects/cyberv2)
+
 The EncryptX is an Android application that provides a convenient way to encrypt plain text using various encryption algorithms. With this app, you can enhance the security of your messages and protect sensitive information from unauthorized access.
 
 ## Features
