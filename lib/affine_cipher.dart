@@ -25,6 +25,13 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
   }
 
   String affineEncrypt(String text, int a, int b) {
+    // int aInverse = 0;
+    // for (int i = 0; i < 26; i++) {
+    //   if ((a * i) % 26 == 1) {
+    //     aInverse = i;
+    //     break;
+    //   }
+    // }
     String cipherText = '';
     for (int i = 0; i < text.length; i++) {
       String char = text[i];
@@ -100,7 +107,7 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Caeser Cipher',
+                  'Affine Cipher',
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold
@@ -126,7 +133,7 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
                 ),
                 SizedBox(height: 10),
                 TextField(
-                  controller: textController,
+                  controller: textKeyOne,
                   decoration: InputDecoration(
                     labelText: "Enter KEY 1",
                     enabledBorder: OutlineInputBorder(
@@ -144,7 +151,7 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
                 ),
                 SizedBox(height: 10),
                 TextField(
-                  controller: textController,
+                  controller: textKeyTwo,
                   decoration: InputDecoration(
                     labelText: "Enter KEY 2",
                     enabledBorder: OutlineInputBorder(
