@@ -1,5 +1,9 @@
+import 'package:cyberv2/rsa/pages/home_page.dart';
+import 'package:cyberv2/rsa/utilities/constants.dart';
 import 'package:cyberv2/styles/glitch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:sizer/sizer.dart';
 import 'affine_cipher.dart';
 import 'caesar_cipher.dart';
 import 'constants.dart';
@@ -12,15 +16,38 @@ void main() {
 class CipherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'EncryptX',
-      theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: backgroundColor
-      ),
-      home: HomeScreen(),
-    );
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: kMainColor,
+    ));
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          primaryColor: kMainColor,
+          scaffoldBackgroundColor: kMainColor,
+          platform: TargetPlatform.iOS,
+          inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  style: BorderStyle.solid, color: Colors.transparent),
+            ),
+          ),
+        ),
+        home: HomeScreen(),
+      );
+    });
   }
+
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     debugShowCheckedModeBanner: false,
+  //     title: 'EncryptX',
+  //     theme: ThemeData.dark().copyWith(
+  //         scaffoldBackgroundColor: backgroundColor
+  //     ),
+  //     home: HomeScreen(),
+  //   );
+  // }
 }
 
 class HomeScreen extends StatelessWidget {
@@ -47,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                'Shoeb Sikder - 19002041',
+                'Shoeb Sikder - 193002041',
                 style: TextStyle(
                   fontSize: 12,
                 ),
@@ -108,6 +135,25 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   child: Text('Playfair Cipher'),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(8),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePageRsa() ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 70),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                  ),
+                  child: Text('RSA'),
                 ),
               ),
             ],
