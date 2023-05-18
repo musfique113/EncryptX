@@ -33,13 +33,25 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GlithEffect(child: const Text("Encrypt-X" ,style: TextStyle(fontWeight: FontWeight.w900 , fontSize: 30),)),
-              // Text(
-              //   'EncryptX',
-              //   style: TextStyle(
-              //     fontSize: 24,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
+              SizedBox(height: 30),
+              Text(
+                'Mahfujur Rahman Musfique - 193002154',
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(
+                'Fahad Islam - 193002039',
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(
+                'Shoeb Sikder - 19002041',
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
               SizedBox(height: 30),
               Container(
                   padding: EdgeInsets.all(8),
