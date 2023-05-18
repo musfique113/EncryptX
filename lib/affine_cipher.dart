@@ -106,29 +106,49 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
             TextField(
               controller: textKeyOne,
               decoration: InputDecoration(
-                labelText: 'Enter text KEY 1',
-                hintText: 'KEY 1',
+                labelText: 'Enter KEY 1',
               ),
             ),
             TextField(
               controller: textKeyTwo,
               decoration: InputDecoration(
-                labelText: 'Enter text KEY 2',
-                hintText: 'KEY 2',
+                labelText: 'Enter KEY 2',
               ),
             ),
             SizedBox(height: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: encryptText,
-                  child: Text('Encrypt'),
+                Container(
+                  child: ElevatedButton(
+                    onPressed: encryptText,
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.grey[800],
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 36),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                    child: Text('Encrypt'),
+                  ),
                 ),
                 SizedBox(width: 16.0),
-                ElevatedButton(
-                  onPressed: decryptText,
-                  child: Text('Decrypt'),
+                Container(
+                  child: ElevatedButton(
+                    onPressed: decryptText,
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.grey[800],
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 36),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                    child: Text('Decrypt'),
+                  ),
                 ),
               ],
             ),

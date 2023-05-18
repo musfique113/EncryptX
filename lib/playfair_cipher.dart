@@ -79,8 +79,6 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
     return cipherText;
   }
 
-
-
   //code for dycription
   void decryptText() {
     final text = textController.text.toUpperCase();
@@ -103,7 +101,7 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
     matrix = matrix.split('').toSet().toList().join(); // remove duplicates
     matrix = matrix.padRight(25, 'X'); // fill up to 25 characters with 'X'
     List<List<String>> playfairMatrix =
-    List.generate(5, (i) => List.generate(5, (j) => matrix[i * 5 + j]));
+        List.generate(5, (i) => List.generate(5, (j) => matrix[i * 5 + j]));
 
     // Replace pairs of characters in input text with their corresponding plaintext pairs
     String plainText = '';
@@ -144,9 +142,8 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
     }
     return plainText;
   }
+
   //code for dycription ends
-
-
 
   void copyResult() {
     Clipboard.setData(ClipboardData(text: resultText));
@@ -181,14 +178,36 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: encryptText,
-                  child: Text('Encrypt'),
+                Container(
+                  child: ElevatedButton(
+                    onPressed: encryptText,
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.grey[800],
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 36),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                    child: Text('Encrypt'),
+                  ),
                 ),
                 SizedBox(width: 16.0),
-                ElevatedButton(
-                  onPressed: decryptText,
-                  child: Text('Decrypt'),
+                Container(
+                  child: ElevatedButton(
+                    onPressed: decryptText,
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.grey[800],
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 36),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                    child: Text('Decrypt'),
+                  ),
                 ),
               ],
             ),

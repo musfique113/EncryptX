@@ -20,15 +20,14 @@ class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
   }
 
   String caesarCipher(String text, int shift) {
-
     String cipherText = '';
     for (int i = 0; i < text.length; i++) {
       String char = text[i];
       if (char.isNotEmpty) {
         if (RegExp(r'[A-Za-z]').hasMatch(char)) {
           char = char.toUpperCase();
-          String cipherChar = String.fromCharCode(
-              (char.codeUnitAt(0) - 65 + shift) % 26 + 65);
+          String cipherChar =
+              String.fromCharCode((char.codeUnitAt(0) - 65 + shift) % 26 + 65);
           cipherText += cipherChar;
         } else {
           cipherText += char;
@@ -49,8 +48,8 @@ class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
       String char = text[i];
       if (RegExp(r'[A-Za-z]').hasMatch(char)) {
         String char = text[i].toUpperCase();
-        String plainChar = String.fromCharCode(
-            (char.codeUnitAt(0) - 65 - shift) % 26 + 65);
+        String plainChar =
+            String.fromCharCode((char.codeUnitAt(0) - 65 - shift) % 26 + 65);
         plainText += plainChar;
       } else {
         plainText += text[i];
@@ -66,6 +65,7 @@ class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
     textController.dispose();
     super.dispose();
   }
+
   void copyResult() {
     Clipboard.setData(ClipboardData(text: resultText));
     ScaffoldMessenger.of(context).showSnackBar(
@@ -93,14 +93,36 @@ class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: encryptText,
-                  child: Text('Encrypt'),
+                Container(
+                  child: ElevatedButton(
+                    onPressed: encryptText,
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.grey[800],
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 36),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                    child: Text('Encrypt'),
+                  ),
                 ),
                 SizedBox(width: 16.0),
-                ElevatedButton(
-                  onPressed: decryptText,
-                  child: Text('Decrypt'),
+                Container(
+                  child: ElevatedButton(
+                    onPressed: decryptText,
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.grey[800],
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 36),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                    child: Text('Decrypt'),
+                  ),
                 ),
               ],
             ),
