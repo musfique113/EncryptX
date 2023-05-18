@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:characters/characters.dart';
 
-
 class AffineCipherScreen extends StatefulWidget {
   @override
   _AffineCipherScreenState createState() => _AffineCipherScreenState();
@@ -10,13 +9,15 @@ class AffineCipherScreen extends StatefulWidget {
 
 class _AffineCipherScreenState extends State<AffineCipherScreen> {
   final textController = TextEditingController();
+  final textKeyOne = TextEditingController();
+  final textKeyTwo = TextEditingController();
   String resultText = '';
 
   void encryptText() {
     setState(() {
       final text = textController.text;
-      final a = 5; // Multiplier
-      final b = 8; // Offset
+      final a = int.tryParse(textKeyOne.text) ?? 0; // Multiplier
+      final b = int.tryParse(textKeyTwo.text) ?? 0; // Offset
       resultText = affineEncrypt(text, a, b);
     });
   }
@@ -42,8 +43,8 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
   void decryptText() {
     setState(() {
       final text = textController.text;
-      final a = 5; // Multiplier
-      final b = 8; // Offset
+      final a = int.tryParse(textKeyOne.text) ?? 0; // Multiplier
+      final b = int.tryParse(textKeyTwo.text) ?? 0; // Offset
       resultText = affineDecrypt(text, a, b);
     });
   }
@@ -73,8 +74,6 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
     return plainText;
   }
 
-
-
   void copyResult() {
     Clipboard.setData(ClipboardData(text: resultText));
     ScaffoldMessenger.of(context).showSnackBar(
@@ -102,6 +101,20 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
               controller: textController,
               decoration: InputDecoration(
                 labelText: 'Enter text',
+              ),
+            ),
+            TextField(
+              controller: textKeyOne,
+              decoration: InputDecoration(
+                labelText: 'Enter text KEY 1',
+                hintText: 'KEY 1',
+              ),
+            ),
+            TextField(
+              controller: textKeyTwo,
+              decoration: InputDecoration(
+                labelText: 'Enter text KEY 2',
+                hintText: 'KEY 2',
               ),
             ),
             SizedBox(height: 16.0),

@@ -11,6 +11,7 @@ class CipherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'EncryptX',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cipher App'),
+        title: Text('EncryptX'),
       ),
       body: Center(
         child: Column(
