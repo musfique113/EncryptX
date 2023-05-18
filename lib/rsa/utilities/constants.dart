@@ -10,8 +10,8 @@ const kDecryptButtonForeground = Color(0xFF1D252C);
 const kDecryptButtonBackground = Color(0xFFCCCCCC);
 
 const kPublicKeyTitle = 'Your Public Key';
-const kPublicKeyInputPageTitle = 'Receiver Public Key';
-const kMessageInputPageTitle = 'Message';
+const kPublicKeyInputPageTitle = "Receiver's Public Key";
+const kMessageInputPageTitle = 'Enter Your Message';
 const kErrorPageTitle = 'Error';
 const kPublicKeyAlertTitle = 'Public Key is Copied!';
 const kEncryptButtonTitle = 'Encrypt';
@@ -30,12 +30,12 @@ const kSadSmiley = ':(';
 const kMaxTextFieldLength = 245;
 
 final kBigTextStyle = TextStyle(
-  fontSize: 28.sp,
+  fontSize: 20,
   fontWeight: FontWeight.bold,
 );
 
 final kPublicKeyDataTextStyle = TextStyle(
-  fontSize: 18.sp,
+  fontSize: 15,
   color: kEncryptButtonBackground,
 );
 
@@ -45,5 +45,5 @@ final kSimpleTextStyle = TextStyle(
 
 final kSnackBarTextStyle = TextStyle(
   fontSize: 11.0.sp,
-  color: kEncryptButtonForeground,
+  //color: kEncryptButtonForeground,
 );

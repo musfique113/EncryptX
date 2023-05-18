@@ -4,8 +4,8 @@ import 'package:cyberv2/rsa/pages/result_page.dart';
 import 'package:cyberv2/rsa/pages/error_page.dart';
 import 'package:cyberv2/rsa/utilities/rsa_brain.dart';
 import 'package:cyberv2/rsa/widgets/appbar_icon_button.dart';
-import 'package:cyberv2/rsa/widgets/editor_screen_template.dart';
-import 'package:sizer/sizer.dart';
+
+import '../../constants.dart';
 
 late RSABrain _myRsaBrain;
 
@@ -19,35 +19,38 @@ class MessageInputPage extends StatefulWidget {
 }
 
 class _MessageInputPageState extends State<MessageInputPage> {
-  TextEditingController messageController = new TextEditingController();
+  TextEditingController messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kSecondaryColor,
       appBar: AppBar(
-        toolbarHeight: 10.h,
+        elevation: 0,
+        // Set the elevation to 0 to remove the shadow
+        backgroundColor: kMainColor,
+        // Set the app bar color here
+        toolbarHeight: 60.0,
         leading: AppBarIconButton(
-          padding: EdgeInsets.only(left: 7.w),
+          padding: EdgeInsets.only(left: 16.0),
           icon: Icons.arrow_back_ios,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           kMessageInputPageTitle,
-          style: kSimpleTextStyle,
+          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
         ),
         actions: [
           AppBarIconButton(
-            padding: EdgeInsets.only(right: 7.w),
+            padding: EdgeInsets.only(right: 16.0),
             icon: Icons.arrow_forward_ios,
             onPressed: () {
               String? secretMessage = _myRsaBrain.encryptTheSetterMessage(
-                  (messageController.text.trim().length > kMaxTextFieldLength)
-                      ? messageController.text
-                          .trim()
-                          .substring(0, kMaxTextFieldLength)
-                      : messageController.text.trim());
-
+                (messageController.text.trim().length > kMaxTextFieldLength)
+                    ? messageController.text
+                        .trim()
+                        .substring(0, kMaxTextFieldLength)
+                    : messageController.text.trim(),
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -67,9 +70,28 @@ class _MessageInputPageState extends State<MessageInputPage> {
           ),
         ],
       ),
-      body: EditorScreenTemplate(
-        controller: messageController,
-        maxLength: kMaxTextFieldLength,
+      body: Padding(
+        padding: EdgeInsets.all(20),
+        child: TextField(
+          controller: messageController,
+          maxLines: null,
+          keyboardType: TextInputType.multiline,
+          style: TextStyle(fontSize: 16.0),
+          decoration: InputDecoration(
+            labelText: "Enter Text",
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+                borderSide: BorderSide(
+                  color: borderColor,
+                )),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: BorderSide(
+                color: borderColor,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -80,81 +80,85 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Container(
-                  padding: EdgeInsets.all(8),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CaesarCipherScreen()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 38),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
+              Column(
+                children: [
+                  Container(
+                      padding: EdgeInsets.all(8),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CaesarCipherScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 38),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      child: Text('Caesar Cipher'),
                     ),
                   ),
-                  child: Text('Caesar Cipher'),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(8),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AffineCipherScreen()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AffineCipherScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      child: Text('Affine Cipher'),
                     ),
                   ),
-                  child: Text('Affine Cipher'),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(8),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PlayfairCipherScreen()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 36),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PlayfairCipherScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 36),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      child: Text('Playfair Cipher'),
                     ),
                   ),
-                  child: Text('Playfair Cipher'),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(8),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePageRsa() ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 70),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePageRsa() ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 70),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      child: Text('RSA'),
                     ),
                   ),
-                  child: Text('RSA'),
-                ),
+                ],
               ),
             ],
           ),

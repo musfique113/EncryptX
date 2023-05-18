@@ -26,19 +26,21 @@ class _DecryptInputPageState extends State<DecryptInputPage> {
     return Scaffold(
       backgroundColor: kSecondaryColor,
       appBar: AppBar(
-        toolbarHeight: 10.h,
+        elevation: 0, // Set the elevation to 0 to remove the shadow
+        backgroundColor: kMainColor, // Set the app bar color here
+        toolbarHeight: 60.0,
         leading: AppBarIconButton(
-          padding: EdgeInsets.only(left: 7.w),
+          padding: EdgeInsets.only(left: 16.0),
           icon: Icons.arrow_back_ios,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           kDecryptButtonTitle,
-          style: kSimpleTextStyle,
+          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
         ),
         actions: [
           AppBarIconButton(
-            padding: EdgeInsets.only(right: 7.w),
+            padding: EdgeInsets.only(right: 16.0),
             icon: Icons.arrow_forward_ios,
             onPressed: () {
               if (secretMessageController.text.trim() == "") {
@@ -60,14 +62,14 @@ class _DecryptInputPageState extends State<DecryptInputPage> {
                   MaterialPageRoute(
                     builder: (context) => (message != null)
                         ? ResultPage(
-                            message: message,
-                            title: kDecryptResultPageTitle,
-                            alert: kDecryptResultAlertTitle,
-                          )
+                      message: message,
+                      title: kDecryptResultPageTitle,
+                      alert: kDecryptResultAlertTitle,
+                    )
                         : ErrorPage(
-                            title: kDecryptErrorTitle,
-                            description: kDecryptErrorDescription,
-                          ),
+                      title: kDecryptErrorTitle,
+                      description: kDecryptErrorDescription,
+                    ),
                   ),
                 );
               }
@@ -75,9 +77,13 @@ class _DecryptInputPageState extends State<DecryptInputPage> {
           ),
         ],
       ),
-      body: EditorScreenTemplate(
-        controller: secretMessageController,
-      ),
+        body: Container(
+          height: 1000,
+          color: kMainColor, // Set the background color of the body
+          child: EditorScreenTemplate(
+            controller: secretMessageController,
+          ),
+        ),
     );
   }
 }

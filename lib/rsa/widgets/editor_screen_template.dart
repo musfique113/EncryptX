@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cyberv2/rsa/utilities/constants.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../constants.dart';
+
 class EditorScreenTemplate extends StatelessWidget {
   const EditorScreenTemplate({
     required this.controller,
@@ -15,22 +17,30 @@ class EditorScreenTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        right: 7.0.w,
-        left: 7.0.w,
-        top: 3.0.h,
-        bottom: 5.0.h,
+        right: 16.0,
+        left: 16.0,
+        top: 24.0,
+        bottom: 40.0,
       ),
       child: TextField(
-        decoration: InputDecoration(border: InputBorder.none),
-        maxLength: maxLength,
+        decoration: InputDecoration(
+          labelText: "Enter Text",
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: BorderSide(
+                color: borderColor,
+              )),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(
+              color: borderColor,
+            ),
+          ),
+        ),
         controller: controller,
-        style: kSimpleTextStyle,
+        style: TextStyle(fontSize: 16.0),
         cursorColor: Colors.white,
-        textAlign: TextAlign.justify,
-        autofocus: true,
         maxLines: null,
-        autocorrect: false,
-        expands: true,
         textInputAction: TextInputAction.done,
       ),
     );

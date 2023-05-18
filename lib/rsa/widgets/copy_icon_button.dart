@@ -23,10 +23,7 @@ class CopyIconButton extends StatelessWidget {
               SnackBar(
                 content: Text(
                   alertText,
-                  textAlign: TextAlign.center,
-                  style: kSnackBarTextStyle,
                 ),
-                backgroundColor: Colors.transparent,
               ),
             );
           });

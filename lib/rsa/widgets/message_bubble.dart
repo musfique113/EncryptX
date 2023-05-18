@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 import 'package:cyberv2/rsa/utilities/constants.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -11,19 +10,22 @@ class MessageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      child: Padding(
-        padding: EdgeInsets.only(
-            left: 7.0.w, right: 7.0.w, top: 4.0.h, bottom: 4.0.h),
-        child: Container(
-          decoration: BoxDecoration(
+      child: Center(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Container(
+            decoration: BoxDecoration(
               color: kSecondaryColor,
-              borderRadius: BorderRadius.all(Radius.circular(20.sp))),
-          child: Padding(
-            padding: EdgeInsets.only(
-                left: 8.0.w, right: 8.0.w, top: 4.0.h, bottom: 4.0.h),
-            child: Text(
-              text,
-              style: kSimpleTextStyle,
+              borderRadius: BorderRadius.all(
+                Radius.circular(10.0),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 11,vertical: 10),
+              child: Text(
+                text,
+                style: TextStyle(fontSize: 23),
+              ),
             ),
           ),
         ),

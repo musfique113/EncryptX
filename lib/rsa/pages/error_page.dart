@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cyberv2/rsa/utilities/constants.dart';
 import 'package:cyberv2/rsa/widgets/appbar_icon_button.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter/services.dart';
 
 class ErrorPage extends StatelessWidget {
   ErrorPage({required this.title, required this.description});
@@ -12,36 +12,38 @@ class ErrorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kErrorColor,
       appBar: AppBar(
-        toolbarHeight: 10.h,
+        elevation: 0, // Set the elevation to 0 to remove the shadow
+        backgroundColor: kMainColor, // Set the app bar color here
+        toolbarHeight: 60.0,
         leading: AppBarIconButton(
-          padding: EdgeInsets.only(left: 7.w),
+          padding: EdgeInsets.only(left: 16.0),
           icon: Icons.arrow_back_ios,
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           kErrorPageTitle,
-          style: kSimpleTextStyle,
+          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.only(right: 12.5.w, left: 12.5.w, top: 8.0.h),
-        child: Column(
-          children: [
-            Text(
-              title,
-              textAlign: TextAlign.left,
-              style: kBigTextStyle,
-            ),
-            SizedBox(
-              height: 3.0.h,
-            ),
-            Text(
-              description,
-              style: kSimpleTextStyle,
-            ),
-          ],
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,color: Colors.red),
+              ),
+              SizedBox(height: 16.0),
+              Text(
+                description,
+                style: TextStyle(fontSize: 16.0),
+              ),
+              SizedBox(height: 24.0),
+            ],
+          ),
         ),
       ),
     );

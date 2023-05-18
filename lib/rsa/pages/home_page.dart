@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cyberv2/rsa/pages/decrypt_input_page.dart';
 import 'package:cyberv2/rsa/pages/public_key_input_page.dart';
 import 'package:cyberv2/rsa/utilities/rsa_brain.dart';
-import 'package:sizer/sizer.dart';
 import 'package:cyberv2/rsa/utilities/constants.dart';
 import 'package:cyberv2/rsa/widgets/copy_icon_button.dart';
 import 'package:cyberv2/rsa/widgets/navigation_button.dart';
@@ -27,15 +26,15 @@ class _HomePageRsaState extends State<HomePageRsa> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
-            right: 7.0.w,
-            left: 7.0.w,
-            top: 4.0.h,
-            bottom: 5.0.h,
+            right: 16.0,
+            left: 16.0,
+            top: 32.0, // Adjust the value as needed
+            bottom: 160.0, // Adjust the value as needed
           ),
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(bottom: 3.0.h),
+                padding: EdgeInsets.only(bottom: 10.0),
                 child: Row(
                   children: [
                     Expanded(
@@ -47,7 +46,7 @@ class _HomePageRsaState extends State<HomePageRsa> {
                     CopyIconButton(
                       clipboardDataText: _myRsaBrain.getOwnPublicKey().toString(),
                       alertText: kPublicKeyAlertTitle,
-                      iconSize: 23.5.sp,
+                      iconSize: 23.5,
                     ),
                   ],
                 ),
@@ -65,12 +64,10 @@ class _HomePageRsaState extends State<HomePageRsa> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 4.0.h),
+                padding: EdgeInsets.only(top: 32.0),
                 child: Column(
                   children: [
-                    NavigationButton(
-                      foreground: kEncryptButtonForeground,
-                      background: kEncryptButtonBackground,
+                    ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -81,14 +78,20 @@ class _HomePageRsaState extends State<HomePageRsa> {
                           ),
                         );
                       },
-                      text: kEncryptButtonTitle,
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.grey[800],
+                        padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 36.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      child: Text('Encrypt'),
                     ),
                     SizedBox(
-                      height: 3.h,
+                      height: 24.0,
                     ),
-                    NavigationButton(
-                      foreground: kDecryptButtonForeground,
-                      background: kDecryptButtonBackground,
+                    ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -99,7 +102,15 @@ class _HomePageRsaState extends State<HomePageRsa> {
                           ),
                         );
                       },
-                      text: kDecryptButtonTitle,
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.grey[800],
+                        padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 36.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      child: Text('Decrypt'),
                     ),
                   ],
                 ),
