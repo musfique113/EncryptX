@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GlithEffect(child: const Text("Encrypt-X" ,style: TextStyle(fontWeight: FontWeight.w900 , fontSize: 30),)),
+              GlithEffect(child: const Text("Encrypt-X" ,style: TextStyle(fontWeight: FontWeight.w300 , fontSize: 50),)),
               SizedBox(height: 30),
               Text(
                 'Mahfujur Rahman Musfique - 193002154',
@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 70),
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 68),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),

@@ -15,7 +15,7 @@ The EncryptX is an Android application that provides a convenient way to encrypt
 
 ## Screenshots
 
-<img src="https://github.com/musfique113/EncryptX/assets/53111065/6172d767-a8cf-42d0-9de4-749da365c339" alt="Screenshot 4" width="200" height="400">
+<img src="https://github.com/musfique113/EncryptX/assets/53111065/b2a05cf2-c2f9-4952-b422-ddb357bdb711" alt="Screenshot 4" width="200" height="400">
 
 <img src="https://github.com/musfique113/EncryptX/assets/53111065/d4c03cce-0fba-477e-b5e2-9a26c8f44ef3" alt="Screenshot 1" width="200" height="400">
 
