@@ -10,6 +10,7 @@ class CaesarCipherScreen extends StatefulWidget {
 
 class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
   final textController = TextEditingController();
+  final textControllerShift = TextEditingController();
   String resultText = '';
   // final IconData myIcon;
   // final String myLabelText;
@@ -18,7 +19,7 @@ class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
   void encryptText() {
     setState(() {
       final text = textController.text;
-      final shift = 3; // You can change the shift value as needed
+      final shift = int.tryParse(textControllerShift.text) ?? 0; // You can change the shift value as needed
 
       resultText = caesarCipher(text, shift);
     });
@@ -46,7 +47,7 @@ class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
   void decryptText() {
     // Implement the Caesar cipher decryption logic
     final text = textController.text;
-    final shift = 3; // Shift value
+    final shift = int.tryParse(textControllerShift.text) ?? 0; // Shift value
 
     String plainText = '';
     for (int i = 0; i < text.length; i++) {
@@ -112,6 +113,24 @@ class _CaesarCipherScreenState extends State<CaesarCipherScreen> {
                           ),
                         ),
                       ),
+                  ),
+                  SizedBox(height: 10),
+                  TextField(
+                    controller: textControllerShift,
+                    decoration: InputDecoration(
+                      labelText: "Enter Shift",
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide(
+                            color: borderColor,
+                          )),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(
+                          color: borderColor,
+                        ),
+                      ),
+                    ),
                   ),
                   SizedBox(height: 35),
                   Row(
