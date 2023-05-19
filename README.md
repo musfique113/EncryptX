@@ -14,9 +14,15 @@ The EncryptX is an Android application that provides a convenient way to encrypt
 - **RSA Encryption**: Implements the RSA algorithm to encrypt text using public and private keys.
 
 ## Screenshots
-<img src="https://github.com/musfique113/EncryptX/assets/53111065/beb1cfde-855a-4bde-8e00-a650222ef848" alt="Screenshot 1" width="200" height="400">
-<img src="https://github.com/musfique113/EncryptX/assets/53111065/5deb59e6-e4ce-47a9-a6c2-0c9ab660b89c" alt="Screenshot 2" width="200" height="400">
-<img src="https://github.com/musfique113/EncryptX/assets/53111065/b59dc258-4019-4c38-9051-a166c2d2c37e" alt="Screenshot 3" width="200" height="400">
+
 <img src="https://github.com/musfique113/EncryptX/assets/53111065/6172d767-a8cf-42d0-9de4-749da365c339" alt="Screenshot 4" width="200" height="400">
+
+<img src="https://github.com/musfique113/EncryptX/assets/53111065/d4c03cce-0fba-477e-b5e2-9a26c8f44ef3" alt="Screenshot 1" width="200" height="400">
+
 <img src="https://github.com/musfique113/EncryptX/assets/53111065/1882cc1e-af78-4443-abae-211c75bb3976" alt="Screenshot 5" width="200" height="400">
+
+<img src="https://github.com/musfique113/EncryptX/assets/53111065/5deb59e6-e4ce-47a9-a6c2-0c9ab660b89c" alt="Screenshot 2" width="200" height="400">
+
+<img src="https://github.com/musfique113/EncryptX/assets/53111065/b59dc258-4019-4c38-9051-a166c2d2c37e" alt="Screenshot 3" width="200" height="400">
+
 
