@@ -1,9 +1,12 @@
+// ignore_for_file: unused_import
+
+import 'package:cyberv2/rsa/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:cyberv2/rsa/utilities/constants.dart';
 
 class CopyIconButton extends StatelessWidget {
   const CopyIconButton({
+    super.key,
     required this.clipboardDataText,
     required this.alertText,
     required this.iconSize,
@@ -28,6 +31,6 @@ class CopyIconButton extends StatelessWidget {
             );
           });
         },
-        icon: Icon(Icons.copy));
+        icon: const Icon(Icons.copy));
   }
 }

@@ -29,12 +29,12 @@ const kDecryptResultAlertTitle = 'Decrypt result is Copied!';
 const kSadSmiley = ':(';
 const kMaxTextFieldLength = 245;
 
-final kBigTextStyle = TextStyle(
+const kBigTextStyle = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.bold,
 );
 
-final kPublicKeyDataTextStyle = TextStyle(
+const kPublicKeyDataTextStyle = TextStyle(
   fontSize: 15,
   color: kEncryptButtonBackground,
 );

@@ -5,7 +5,8 @@ class AppBarIconButton extends StatelessWidget {
   final IconData icon;
   final Function onPressed;
 
-  AppBarIconButton({
+  const AppBarIconButton({
+    super.key,
     required this.icon,
     required this.onPressed,
     required this.padding,

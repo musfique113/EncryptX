@@ -4,8 +4,10 @@ import 'package:flutter/services.dart';
 import 'constants.dart';
 
 class PlayfairCipherScreen extends StatefulWidget {
+  const PlayfairCipherScreen({super.key});
+
   @override
-  _PlayfairCipherScreenState createState() => _PlayfairCipherScreenState();
+  State createState() => _PlayfairCipherScreenState();
 }
 
 class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
@@ -14,7 +16,7 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
 
   void encryptText() {
     final text = textController.text.toUpperCase();
-    final key = "KEY"; // Replace with your own key
+    const key = "KEY";
     String cipherText = playfairEncrypt(text, key);
     setState(() {
       resultText = cipherText;
@@ -84,7 +86,7 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
   //code for dycription
   void decryptText() {
     final text = textController.text.toUpperCase();
-    final key = "KEY"; // Replace with your own key
+    const key = "KEY"; // Replace with your own key
     String plainText = playfairDecrypt(text, key);
     setState(() {
       resultText = plainText;
@@ -145,12 +147,10 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
     return plainText;
   }
 
-  //code for dycription ends
-
   void copyResult() {
     Clipboard.setData(ClipboardData(text: resultText));
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Result copied to clipboard')),
+      const SnackBar(content: Text('Result copied to clipboard')),
     );
   }
 
@@ -166,80 +166,58 @@ class _PlayfairCipherScreenState extends State<PlayfairCipherScreen> {
       body: SafeArea(
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Playfair Cipher',
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold
                   ),
                 ),
-                SizedBox(height: 45),
+                const SizedBox(height: 45),
                 TextField(
                   controller: textController,
                   decoration: InputDecoration(
                     labelText: "Enter Text",
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: borderColor,
                         )),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: borderColor,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 35),
+                const SizedBox(height: 35),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      child: ElevatedButton(
-                        onPressed: encryptText,
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.grey[800],
-                          padding:
-                              EdgeInsets.symmetric(vertical: 15, horizontal: 36),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                        ),
-                        child: Text('Encrypt'),
-                      ),
+                    ElevatedButton(
+                      onPressed: encryptText,
+                      child: const Text('Encrypt'),
                     ),
-                    SizedBox(width: 16.0),
-                    Container(
-                      child: ElevatedButton(
-                        onPressed: decryptText,
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.grey[800],
-                          padding:
-                              EdgeInsets.symmetric(vertical: 15, horizontal: 36),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                        ),
-                        child: Text('Decrypt'),
-                      ),
+                    const SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: decryptText,
+                      child: const Text('Decrypt'),
                     ),
                   ],
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Row(
                   children: [
                     Expanded(
                       child: Text('Result: $resultText'),
                     ),
                     IconButton(
-                      icon: Icon(Icons.copy),
+                      icon: const Icon(Icons.copy),
                       onPressed: copyResult,
                     ),
                   ],

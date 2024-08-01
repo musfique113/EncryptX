@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:characters/characters.dart';
 
 import 'constants.dart';
 
 class AffineCipherScreen extends StatefulWidget {
+  const AffineCipherScreen({super.key});
+
   @override
-  _AffineCipherScreenState createState() => _AffineCipherScreenState();
+  State createState() => _AffineCipherScreenState();
 }
 
 class _AffineCipherScreenState extends State<AffineCipherScreen> {
@@ -86,7 +87,7 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
   void copyResult() {
     Clipboard.setData(ClipboardData(text: resultText));
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Result copied to clipboard')),
+      const SnackBar(content: Text('Result copied to clipboard')),
     );
   }
 
@@ -102,116 +103,94 @@ class _AffineCipherScreenState extends State<AffineCipherScreen> {
       body: SafeArea(
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Affine Cipher',
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold
                   ),
                 ),
-                SizedBox(height: 45),
+                const SizedBox(height: 45),
                 TextField(
                   controller: textController,
                   decoration: InputDecoration(
                     labelText: "Enter Text",
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: borderColor,
                         )),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: borderColor,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextField(
                   controller: textKeyOne,
                   decoration: InputDecoration(
                     labelText: "Enter KEY 1",
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: borderColor,
                         )),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: borderColor,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextField(
                   controller: textKeyTwo,
                   decoration: InputDecoration(
                     labelText: "Enter KEY 2",
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: borderColor,
                         )),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: borderColor,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      child: ElevatedButton(
-                        onPressed: encryptText,
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.grey[800],
-                          padding:
-                              EdgeInsets.symmetric(vertical: 15, horizontal: 36),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                        ),
-                        child: Text('Encrypt'),
-                      ),
+                    ElevatedButton(
+                      onPressed: encryptText,
+                      child: const Text('Encrypt'),
                     ),
-                    SizedBox(width: 16.0),
-                    Container(
-                      child: ElevatedButton(
-                        onPressed: decryptText,
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.grey[800],
-                          padding:
-                              EdgeInsets.symmetric(vertical: 15, horizontal: 36),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                        ),
-                        child: Text('Decrypt'),
-                      ),
+                    const SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: decryptText,
+                      child: const Text('Decrypt'),
                     ),
                   ],
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Row(
                   children: [
                     Expanded(
                       child: Text('Result: $resultText'),
                     ),
                     IconButton(
-                      icon: Icon(Icons.copy),
+                      icon: const Icon(Icons.copy),
                       onPressed: copyResult,
                     ),
                   ],

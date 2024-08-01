@@ -2,166 +2,131 @@ import 'package:cyberv2/rsa/pages/home_page.dart';
 import 'package:cyberv2/rsa/utilities/constants.dart';
 import 'package:cyberv2/styles/glitch.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:sizer/sizer.dart';
+
 import 'affine_cipher.dart';
 import 'caesar_cipher.dart';
-import 'constants.dart';
 import 'playfair_cipher.dart';
 
 void main() {
-  runApp(CipherApp());
+  runApp(const CipherApp());
 }
 
 class CipherApp extends StatelessWidget {
+  const CipherApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: kMainColor,
-    ));
-    return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark().copyWith(
-          primaryColor: kMainColor,
-          scaffoldBackgroundColor: kMainColor,
-          platform: TargetPlatform.iOS,
-          inputDecorationTheme: InputDecorationTheme(
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                  style: BorderStyle.solid, color: Colors.transparent),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(
+        primaryColor: kMainColor,
+        scaffoldBackgroundColor: kMainColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.grey[800],
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 38),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
             ),
           ),
         ),
-        home: HomeScreen(),
-      );
-    });
+        inputDecorationTheme: const InputDecorationTheme(
+          focusedBorder: UnderlineInputBorder(
+            borderSide:
+                BorderSide(style: BorderStyle.solid, color: Colors.transparent),
+          ),
+        ),
+      ),
+      home: const HomeScreen(),
+    );
   }
-
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     debugShowCheckedModeBanner: false,
-  //     title: 'EncryptX',
-  //     theme: ThemeData.dark().copyWith(
-  //         scaffoldBackgroundColor: backgroundColor
-  //     ),
-  //     home: HomeScreen(),
-  //   );
-  // }
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GlithEffect(child: const Text("Encrypt-X" ,style: TextStyle(fontWeight: FontWeight.w300 , fontSize: 50),)),
-              SizedBox(height: 30),
-              Text(
-                'Mahfujur Rahman Musfique - 193002154',
-                style: TextStyle(
-                  fontSize: 12,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const GlithEffect(
+                child: Text(
+              "Encrypt-X",
+              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 50),
+            )),
+            const SizedBox(height: 30),
+            const Text(
+              'Mahfujur Rahman Musfique - 193002154',
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+            const Text(
+              'Fahad Islam - 193002039',
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+            const Text(
+              'Shoeb Sikder - 193002041',
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+            const SizedBox(height: 30),
+            Column(
+              children: [
+                const Row(),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CaesarCipherScreen()),
+                    );
+                  },
+                  child: const Text('Caesar Cipher'),
                 ),
-              ),
-              Text(
-                'Fahad Islam - 193002039',
-                style: TextStyle(
-                  fontSize: 12,
+                const SizedBox(height: 25),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AffineCipherScreen()),
+                    );
+                  },
+                  child: const Text('Affine Cipher'),
                 ),
-              ),
-              Text(
-                'Shoeb Sikder - 193002041',
-                style: TextStyle(
-                  fontSize: 12,
+                const SizedBox(height: 25),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PlayfairCipherScreen()),
+                    );
+                  },
+                  child: const Text('Playfair Cipher'),
                 ),
-              ),
-              SizedBox(height: 30),
-              Column(
-                children: [
-                  Container(
-                      padding: EdgeInsets.all(8),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => CaesarCipherScreen()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 38),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
-                      child: Text('Caesar Cipher'),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => AffineCipherScreen()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
-                      child: Text('Affine Cipher'),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PlayfairCipherScreen()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 36),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
-                      child: Text('Playfair Cipher'),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePageRsa() ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.grey[800],
-                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 68),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
-                      child: Text('RSA'),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                const SizedBox(height: 25),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomePageRsa()),
+                    );
+                  },
+                  child: const Text('RSA'),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

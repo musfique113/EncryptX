@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class NavigationButton extends StatelessWidget {
-  NavigationButton(
-      {required this.text,
+  const NavigationButton(
+      {super.key,
+      required this.text,
       required this.background,
       required this.foreground,
       required this.onPressed});
